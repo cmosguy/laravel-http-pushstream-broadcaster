@@ -1,15 +1,20 @@
 {
-    "name": "cmosguy/laravel-http-pushstream-broadcaster",
-    "description": "Laravel broadcast driver for the HTTP Push-stream Nginx module",
-    "require": {
-        "guzzlehttp/guzzle": "5.3"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Adam Klein",
-            "email": "asklein@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev"
+  "name": "cmosguy/laravel-http-pushstream-broadcaster",
+  "description": "Laravel broadcast driver for the HTTP Push-stream Nginx module",
+  "require": {
+    "php": ">=5.3.1",
+    "guzzlehttp/guzzle": "~5.3",
+    "illuminate/support": "~5.1"
+  },
+  "psr-0": {
+    "Cmosguy": "src/"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Adam Klein",
+      "email": "asklein@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev"
 }
