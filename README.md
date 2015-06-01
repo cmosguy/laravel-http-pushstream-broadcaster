@@ -46,9 +46,9 @@ You can lock down your pub/sub nginx endpoints using the [Access Key Module](htt
 ## Sample Nginx Configuration
 1.  In your `/etc/nginx/nginx.conf` file add:
 
-    push_stream_shared_memory_size 32M;
+        push_stream_shared_memory_size 32M;
    
-2.  In your config file for your routes in the `server {` section, obviously you need to understand and modify the items below but this is meant to just get your started.  If you want a more thorough config check out [this](https://gist.github.com/dctrwatson/0b3b52050254e273ff11#file-nginx-v):
+2.  Edit your config file for your routes in the `server {` section. Obviously, you need to understand and modify the items below.  The folling config information is just meant to get you started.  If you want a more thorough config check out [this](https://gist.github.com/dctrwatson/0b3b52050254e273ff11#file-nginx-v):
 
         location /channels-stats {
             # activate channels statistics mode for this location
@@ -111,10 +111,60 @@ You can lock down your pub/sub nginx endpoints using the [Access Key Module](htt
             push_stream_channels_path               $arg_id;
         }
 
+## Usage in your app
+
+So, once you  are finally ready to trigger an event, you can do this easily now by just extending this `broadcastOn` in your event handler:
+
+```php
+
+<?php namespace App\Events;
+
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+
+class SomeEven implements ShouldBroadcast
+{
+    use SerializesModels;
+    /**
+     * @var Foo
+     */
+    public $foo;
+
+    public function __construct(Foo $foo)
+    {
+        //
+        $this->foo = $foo;
+    }
+
+    /**
+     * Get the channels the event should be broadcast on.
+     *
+     * @return array
+     */
+    public function broadcastOn()
+    {
+        return ['foochannel-'.$this->foo->uuid];
+    }
+}
+
+```
+
+
         
-## Disclaimer
+        
+## The Client
+
+Please download the simple **pushstream.js** from here either following locations:
+
+*  [The wandenberg/nginx-push-stream-module repository](https://raw.githubusercontent.com/wandenberg/nginx-push-stream-module/master/misc/js/pushstream.js)
+*  Or you can go the bower route: `bower install pushstream`
+        
+# Disclaimer
 
 This is by no means the only want to go about how this should work.  You need to understand what all the options do and there is definitely a a
+
+# Help
+Please help me with updating this documentation.  If it does not make sense or if you see something stupid let me know.  Also, if there is a way to make this extend further and make it more flexible for othher's pleaes offer a PR and can improve upon these.
 
 
 
