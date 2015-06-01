@@ -4,12 +4,14 @@ Thank your for your interest in the HTTP Push-stream Nginx broadcast driver for 
 
 
 # Why use HTTP Pushstream?
-If you want to really absorb the power of this capability of this module then check out what the dev-ops from Discus thought in this link:
+If you want to really absorb the power of the capabilities of this module then check out what the dev-ops from Discus thought in this link:
 
 http://highscalability.com/blog/2014/4/28/how-disqus-went-realtime-with-165k-messages-per-second-and-l.html
 
 # How does this driver work?
-Once you setup all your routes for the pub/sub requests to the HTTP routes in in the `location` directives for *Nginx*, then you'll be able to quickly open a socket on your client use the **pushstream.js** push your broadcasts out.  The requests are internally called by the [GuzzleHttp](http://guzzle.readthedocs.org/en/latest/) package.  The `broadcasting.php` config file will use the **pushstream** driver where you can control the HTTP requests to the to your pub/sub endpoints.  
+Once you setup all your routes for the pub/sub requests to the HTTP routes in in the `location` directives for *Nginx*, then you'll be able to quickly open a socket on your client use the **pushstream.js** and push your broadcasts out using websocket or long-polling.  
+
+The *pub/sub* requests are internally called by the [GuzzleHttp](http://guzzle.readthedocs.org/en/latest/) package.  The `broadcasting.php` config file will use the **pushstream** driver where you can control the HTTP requests to the to your pub/sub endpoints.  
 
 You can lock down your pub/sub nginx endpoints using the [Access Key Module](http://wiki.nginx.org/HttpAccessKeyModule).  Here you can configure the key 
 
