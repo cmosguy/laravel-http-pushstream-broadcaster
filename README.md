@@ -4,7 +4,7 @@ Thank your for your interest in the HTTP Push-stream Nginx broadcast driver for 
 
 
 # Why use HTTP Pushstream?
-If you want to really absorb the power of the capabilities of this module then check out what the dev-ops from Discus thought in this link:
+If you want to really absorb the power of the capabilities of this module then check out what the dev-ops from [Disqus](http://disqus.com) thought in this link:
 
 http://highscalability.com/blog/2014/4/28/how-disqus-went-realtime-with-165k-messages-per-second-and-l.html
 
