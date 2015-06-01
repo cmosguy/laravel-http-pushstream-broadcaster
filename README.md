@@ -148,16 +148,23 @@ class SomeEven implements ShouldBroadcast
 }
 
 ```
-
-
-        
         
 ## The Client
 
-Please download the simple **pushstream.js** from here either following locations:
+Please download the **pushstream.js** from either following locations:
 
 *  [The wandenberg/nginx-push-stream-module repository](https://raw.githubusercontent.com/wandenberg/nginx-push-stream-module/master/misc/js/pushstream.js)
 *  Or you can go the bower route: `bower install pushstream`
+
+
+## Study the Push Stream Module
+
+At this time the only way to get more information from about the module and the capabilities is directly from the github repository, so do some reading here:
+
+*  https://github.com/wandenberg/nginx-push-stream-module
+*  See how the pushstream.js example works here:  http://www.nginxpushstream.com/chat.html
+*  Also read more about the pushstream.js here:  https://github.com/wandenberg/nginx-push-stream-module/blob/master/docs/examples/websocket.textile#websocket-
+
         
 # Disclaimer
 
