@@ -6,9 +6,12 @@
     "guzzlehttp/guzzle": "~5.3",
     "illuminate/support": "~5.1"
   },
-  "psr-0": {
-    "Cmosguy": "src/"
+  "autoload": {
+    "psr-0": {
+      "Cmosguy": "src/"
+    }
   },
+
   "license": "MIT",
   "authors": [
     {
