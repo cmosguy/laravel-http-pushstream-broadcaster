@@ -29,7 +29,7 @@ You can lock down your pub/sub nginx endpoints using the [Access Key Module](htt
 
 1. Do a composer require get this package: `composer require cmosguy/laravel-http-pushstream-broadcaster`
 
-2. Next, go into your `config/broadcasting.php` file and add and adjust the following lines accordingly. `base_url` refers to websocket root for your HTTP requests pub/sub routes:
+2. Next, go into your `config/broadcasting.php` file and add the following lines accordingly. `base_url` refers to websocket root for your HTTP requests pub/sub routes:
  
         'default' => pushstream,
 
@@ -171,7 +171,7 @@ At this time the only way to get more information from about the module and the 
 This is by no means the only way to go about how this should work. You need to understand what all the options do and there is definitely a a
 
 # Help
-Please help me with updating this documentation. If it does not make sense or if you see something stupid let me know. Also, if there is a way to make this extend further and make it more flexible for other's, please submit a PR to improve upon these.
+Please help me with updating this documentation. If it does not make sense or if you see something stupid let me know. Also, if there is a way to make this extend further and make it more flexible for others, please submit a PR to improve upon these.
 
 
 
