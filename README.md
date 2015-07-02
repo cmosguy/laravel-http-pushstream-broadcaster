@@ -9,27 +9,27 @@ If you want to really absorb the power of the capabilities of this module then c
 http://highscalability.com/blog/2014/4/28/how-disqus-went-realtime-with-165k-messages-per-second-and-l.html
 
 # How does this driver work?
-Once you setup all your routes for the pub/sub requests to the HTTP routes in in the `location` directives for *Nginx*, then you'll be able to quickly open a socket on your client use the **pushstream.js** and push your broadcasts out using websocket or long-polling.  
+Once you setup all your routes for the pub/sub requests to the HTTP routes in the `location` directives for *Nginx*, then you'll be able to quickly open a socket on your client use the **pushstream.js** and push your broadcasts out using websocket or long-polling.  
 
 The *pub/sub* requests are internally called by the [GuzzleHttp](http://guzzle.readthedocs.org/en/latest/) package.  The `broadcasting.php` config file will use the **pushstream** driver where you can control the HTTP requests to the to your pub/sub endpoints.  
 
-You can lock down your pub/sub nginx endpoints using the [Access Key Module](http://wiki.nginx.org/HttpAccessKeyModule).  Here you can configure the key 
+You can lock down your pub/sub nginx endpoints using the [Access Key Module](http://wiki.nginx.org/HttpAccessKeyModule).  Here you can configure the key.
 
 ## Requirements
 
-*  **HTTP Pushstream Module:** You must compile the Nginx HTTP Pushstream module.  Here are some instructions on how to do it here for the module itself on github: 
+*  **HTTP Pushstream Module:** You must compile the Nginx HTTP Pushstream module. Here are some instructions on how to do it here for the module itself on github: 
     * [Github readme](https://github.com/wandenberg/nginx-push-stream-module#installation)
     * [Nginx module site](http://wiki.nginx.org/HttpPushStreamModule#instalation)
     * [I have made an Ubuntu install script](scripts/install_nginx_pushstream_module.sh)
     
-*  **Acces Key Module** Also, if you want to use the `access_key` feature to the routes for the pub/sub then please also install the [Access Key Module](http://wiki.nginx.org/HttpAccessKeyModule)
+*  **Acces Key Module** Also, if you want to use the `access_key` feature to the routes for the pub/sub then please also install the [Access Key Module](http://wiki.nginx.org/HttpAccessKeyModule).
 
 
 ## Installation
 
 1. Do a composer require get this package: `composer require cmosguy/laravel-http-pushstream-broadcaster`
 
-2. Next, go into your `config/broadcasting.php` file and add and adjust the following lines accordingly.  `base_url` refers to websocket root for your HTTP requests pub/sub routes:
+2. Next, go into your `config/broadcasting.php` file and add the following lines accordingly. `base_url` refers to websocket root for your HTTP requests pub/sub routes:
  
         'default' => pushstream,
 
@@ -48,7 +48,7 @@ You can lock down your pub/sub nginx endpoints using the [Access Key Module](htt
 
         push_stream_shared_memory_size 32M;
    
-2.  Edit your config file for your routes in the `server {` section. Obviously, you need to understand and modify the items below.  The folling config information is just meant to get you started.  If you want a more thorough config check out [this](https://gist.github.com/dctrwatson/0b3b52050254e273ff11#file-nginx-v):
+2.  Edit your config file for your routes in the `server {` section. Obviously, you need to understand and modify the items below. The following config information is just meant to get you started. If you want a more thorough config check out [this](https://gist.github.com/dctrwatson/0b3b52050254e273ff11#file-nginx-v):
 
         location /channels-stats {
             # activate channels statistics mode for this location
@@ -162,16 +162,16 @@ Please download the **pushstream.js** from either following locations:
 At this time the only way to get more information from about the module and the capabilities is directly from the github repository, so do some reading here:
 
 *  https://github.com/wandenberg/nginx-push-stream-module
-*  See how the pushstream.js example works here:  http://www.nginxpushstream.com/chat.html
-*  Also read more about the pushstream.js here:  https://github.com/wandenberg/nginx-push-stream-module/blob/master/docs/examples/websocket.textile#websocket-
+*  See how the pushstream.js example works here: http://www.nginxpushstream.com/chat.html
+*  Also read more about the pushstream.js here: https://github.com/wandenberg/nginx-push-stream-module/blob/master/docs/examples/websocket.textile#websocket-
 
         
 # Disclaimer
 
-This is by no means the only want to go about how this should work.  You need to understand what all the options do and there is definitely a a
+This is by no means the only way to go about how this should work. You need to understand what all the options do and there is definitely a a
 
 # Help
-Please help me with updating this documentation.  If it does not make sense or if you see something stupid let me know.  Also, if there is a way to make this extend further and make it more flexible for othher's pleaes offer a PR and can improve upon these.
+Please help me with updating this documentation. If it does not make sense or if you see something stupid let me know. Also, if there is a way to make this extend further and make it more flexible for others, please submit a PR to improve upon these.
 
 
 
