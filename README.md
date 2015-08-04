@@ -122,7 +122,7 @@ So, once you  are finally ready to trigger an event, you can do this easily now 
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class SomeEven implements ShouldBroadcast
+class SomeEvent implements ShouldBroadcast
 {
     use SerializesModels;
     /**
