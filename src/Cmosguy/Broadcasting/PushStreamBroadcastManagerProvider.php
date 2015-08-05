@@ -14,12 +14,18 @@ class PushStreamBroadcastManagerProvider extends ServiceProvider
     {
 
         $this->app->make('Illuminate\Broadcasting\BroadcastManager')->extend('pushstream', function ($app, $config) {
-            return new PushStreamBroadcaster(new Client([
+            $client = new Client([
                 'base_url' => $config['base_url'],
                 'query'    => [
                     'access_key' => $config['access_key']
                 ]
-            ]));
+            ]);
+            
+            if (!empty($config['cert'])) {
+                $client->setDefaultOption('verify', $config['cert']);
+            }
+
+            return new PushStreamBroadcaster($client);
         });
     }
 

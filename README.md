@@ -37,6 +37,8 @@ You can lock down your pub/sub nginx endpoints using the [Access Key Module](htt
             'driver' => 'pushstream',
             'base_url' => 'http://localhost',
             'access_key' => md5('foo')
+            'cert' => null
+            // or 'cert' => 'path/to/server.crt' for self-signed certificate
         ]
 
 3.  In your `config/app.php` add the following line to your `providers` array:
