@@ -31,7 +31,7 @@ You can lock down your pub/sub nginx endpoints using the [Access Key Module](htt
 
 2. Next, go into your `config/broadcasting.php` file and add the following lines accordingly. `base_url` refers to websocket root for your HTTP requests pub/sub routes:
  
-        'default' => pushstream,
+        'default' => 'pushstream',
 
         'pushstream' => [
             'driver' => 'pushstream',
