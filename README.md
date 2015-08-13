@@ -105,9 +105,9 @@ You can lock down your pub/sub nginx endpoints using the [Access Key Module](htt
            # activate publisher (admin) mode for this location
            push_stream_publisher admin;
            accesskey                on;
-           accesskey_hasmethod      md5;
+           accesskey_hashmethod     md5;
            accesskey_arg            "access_key";
-           accesskey_signature      "mypass"
+           accesskey_signature      "foo"
 
             # query string based channel id
             push_stream_channels_path               $arg_id;
