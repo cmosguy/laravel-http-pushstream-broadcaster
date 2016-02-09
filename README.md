@@ -36,7 +36,7 @@ You can lock down your pub/sub nginx endpoints using the [Access Key Module](htt
         'pushstream' => [
             'driver' => 'pushstream',
             'base_url' => 'http://localhost',
-            'access_key' => md5('foo')
+            'access_key' => md5('foo'),
             'cert' => null
             // or 'cert' => 'path/to/server.crt' for self-signed certificate
         ]
